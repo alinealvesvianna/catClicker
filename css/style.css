@@ -1,0 +1,17 @@
+.container {
+    max-width: 64em;
+    width: 100%;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.txtContador{
+  color: red;
+  font-size: 1.5em;
+  margin: 1em 0;
+  font-weight: bold;
+}
