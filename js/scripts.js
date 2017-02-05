@@ -49,16 +49,11 @@
         tituloGato.innerHTML = dadosGatos[i].titulo_gato;
 
 
-
-
         nomeGato.addEventListener('click', function() {
-
             containerMostrarGato.innerHTML = '';
             containerMostrarGato.appendChild(tituloGato);
             containerMostrarGato.appendChild(imagemGato);
             containerMostrarGato.appendChild(contadorGato);
-            containerMostrarGato.appendChild(contadorGato);
-
         });
 
         imagemGato.addEventListener('click', function(){
@@ -69,32 +64,15 @@
 
 
         containerListaGato.appendChild(containerGato);
-        // containerGato.appendChild(tituloGato);
         containerGato.appendChild(nomeGato);
-        // containerGato.appendChild(imagemGato);
-        // containerGato.appendChild(contadorGato);
+
 
     };
 
 
     for (var i = 0, j = dadosGatos.length; i < j; i++) {
         gerarContainerGatinhos(i);
-        // document.getElementById('nomeGato' + i).innerHTML = dadosGatos[i].nome_gato;
-        // document.getElementById('imagemGato' + i).src = dadosGatos[i].imagem_gato;
-
     }
-
-
-
-
-
-    // function contarCliques(id, contador) {
-    //     var contador = contador += 1;
-    //     var placar = document.getElementById(id);
-    //     placar.innerHTML = "já tenho " + contador + " cliques";
-    // }
-
-
 
 
 })()
