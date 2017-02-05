@@ -2,16 +2,25 @@
     max-width: 64em;
     width: 100%;
     margin: 0 auto;
+    display: -webkit-flex;
+    display: flex;
 }
+
 
 img {
     width: 100%;
     margin: 0 auto;
 }
 
-.txtContador{
-  color: red;
-  font-size: 1.5em;
-  margin: 1em 0;
-  font-weight: bold;
+.txtContador {
+    color: red;
+    font-size: 1.5em;
+    margin: 1em 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-gato {
+    width: 300px;
+    margin: 10px;
 }
