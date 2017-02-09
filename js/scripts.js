@@ -1,28 +1,36 @@
-(function() {
+$(function() {
 
     var data = {
         dadosGatos: [{
                 nomeGato: "Bananinha",
-                tituloGato: "esse é o primeiro gatinho, Bananinha",
-                imagemGato: "img/catImage.jpg"
+                // tituloGato: "esse é o primeiro gatinho, Bananinha",
+                imagemGato: "img/catImage.jpg",
+                contagemCliques: 0
             },
 
             {
                 nomeGato: "Tintim",
-                tituloGato: "esse é o segundo gatinho, Tintim",
-                imagemGato: "img/catImage2.jpg"
+                // tituloGato: "esse é o segundo gatinho, Tintim",
+                imagemGato: "img/catImage2.jpg",
+                contagemCliques: 0
             },
 
             {
                 nomeGato: "Bolinha",
-                tituloGato: "esse é o segundo gatinho, Bolinha",
-                imagemGato: "img/catImage2.jpg"
+                // tituloGato: "esse é o segundo gatinho, Bolinha",
+                imagemGato: "img/catImage3.jpg",
+                contagemCliques: 0
             }
 
         ]
     };
 
     var octopus = {
+
+        adicionarLista: function(){
+            var
+        };
+
         selecionarGato: function() {
 
         };
@@ -31,7 +39,7 @@
 
         };
 
-        tornaPizzaVisivel: function() {
+        tornaGatoVisivel: function() {
 
         };
 
@@ -43,7 +51,8 @@
 
     var view = {
         init: function() {
-
+          this.$listaGatos = $('lista-gatos');
+          this.ListaGatoTemplate = $('script[data-template="gato"]');
         };
 
         render: function() {
@@ -134,3 +143,107 @@
 //
 //
 // })()
+
+
+
+
+$(function () {
+
+    var data = {
+
+        current: null,
+
+        dados: [
+            {
+                nome: "nome1",
+                imagem: "img/imagem.jpg",
+                contagemCliques: 0
+            },
+
+            {
+                nome: "nome2",
+                imagem: "img/imagem2.jpg",
+                contagemCliques: 0
+            },
+
+            {
+                nome: "nome3",
+                imagem: "img/imagem3.jpg",
+                contagemCliques: 0
+            }
+
+        ]
+    };
+
+    var octopus = {
+
+        init: function () {
+            data.current = dados[0];
+            view1.init();
+            //view2.init();
+        },
+
+        pegarAtual: function () {
+            return data.current;
+        },
+
+        pegarTodos: function () {
+            return data.dados;
+        },
+
+        selecionarAtual: function (atual) {
+            data.current = atual;
+        },
+
+        incrementarClique: function () {
+            data.current.contagemCliques++;
+            view2.render();
+        }
+
+    };
+
+
+    var view1 = {
+        init: function () {
+            //this.$lista = $('lista');
+
+            this.lista = document.getElementsByClassName('lista')
+            this.render();
+        },
+
+        render: function () {
+            var elem,
+                i,
+                cals = octopus.pegarTodos(),
+                cal = cals[i];
+
+            this.lista.innerHTML = "";
+
+            for (var i = 0; i < cals.length; i++) {
+                elem = document.createElement("li");
+                elem.textContent = cal.nome
+
+
+                elem.addEventListener('click', (function (calCopy) {
+                    return function () {
+                        octopus.selecionarAtual(calCopy);
+                        //view1.render();
+                    };
+                })(cal));
+
+
+                this.lista.append(elem);
+
+
+            };
+        },
+    };
+
+    var view2 = {
+
+    };
+
+
+    octopus.init();
+
+})();
