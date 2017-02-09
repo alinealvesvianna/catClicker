@@ -1,4 +1,47 @@
 <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Udacity Hut</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- <div class="controls">
+        <button class="add-pizza">Add Pizza</button>
+    </div> -->
+
+    <ul class="lista-gatos"></ul>
+
+    <script type="text/template" data-template="gato">
+        <li class="gato" data-id="{{id}}">
+            {{id}}
+        </li>
+    </script>
+
+    <section class="container-gatos"></section>
+
+
+    <script type="text/template" data-template="containerGato">
+        <div class="containerGato" data-id="{{id}}">
+            <h1 class="nome-gato"></h1>
+            <img src="" class="imagem-gato">
+            <p class="quantidade-cliques"></p>
+            {{id}}
+        </div>
+    </script>
+
+
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,13 +54,10 @@
 
 <body id='body'>
     <div class="container" id="container">
-        <!-- <img id="imagemContador" src="img/catImage.jpg" alt="imagem do gatinho">
-        <p class="txtContador" id="placarCliques"></p> -->
-
         <div id="seletor-gato"></div>
     </div>
 </body>
-<script src="js/scripts.js"></script>
+<script src="js/scripts.js"></script> -->
 <!-- <script>
 //Segunda resolução da parte de gatos
 //IIFE (Immediately-Invoked Function Expression - Expressão de função invocada imediatamente, pronunciada como \"iffy\").
@@ -47,4 +87,4 @@ for (var i = 0; i < nums.length; i++) {
     document.body.appendChild(elem);
 };
 </script> -->
-</html>
+<!-- </html> -->
