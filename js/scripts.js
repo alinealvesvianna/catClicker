@@ -147,7 +147,7 @@ $(function() {
 
 
 
-$(function () {
+(function () {
 
     var data = {
 
@@ -178,7 +178,7 @@ $(function () {
     var octopus = {
 
         init: function () {
-            data.current = dados[0];
+            data.current = data.dados[0];
             view1.init();
             //view2.init();
         },
@@ -214,12 +214,14 @@ $(function () {
         render: function () {
             var elem,
                 i,
-                cals = octopus.pegarTodos(),
-                cal = cals[i];
+                cals = octopus.pegarTodos();
 
             this.lista.innerHTML = "";
 
             for (var i = 0; i < cals.length; i++) {
+                cal = cals[i];
+
+
                 elem = document.createElement("li");
                 elem.textContent = cal.nome
 
@@ -232,9 +234,9 @@ $(function () {
                 })(cal));
 
 
-                this.lista.append(elem);
+                this.lista.appendChild(elem);
 
-
+                console.log(this)
             };
         },
     };
