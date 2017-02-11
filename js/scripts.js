@@ -57,7 +57,7 @@
         init: function() {
             //this.$lista = $('lista');
 
-            this.listaGatos = document.getElementsByClassName('lista-gatos');
+            this.listaGatos = document.getElementById('lista-gatos');
             this.render();
             // console.log(this);
         },
@@ -77,11 +77,11 @@
                 elem.addEventListener('click', (function(catCopy) {
                     return function() {
                         octopus.selecionarAtual(catCopy);
-                        octopus.incrementarClique();
+                        container.render();
                     };
                 })(cat));
 
-                this.listaGatos[0].appendChild(elem);
+                this.listaGatos.appendChild(elem);
             };
         },
     };
@@ -89,40 +89,37 @@
     var container = {
 
         init: function() {
-            this.container = document.getElementsByClassName('container-gatos');
+            this.container = document.getElementById('container-gatos');
+
+            this.containerGatoClicado = document.createElement("div");
+            this.elemImagem = document.createElement("img");
+            this.elemTitulo = document.createElement("h1");
+            this.elemContador = document.createElement("p");
+
+            this.containerGatoClicado.appendChild(this.elemTitulo);
+            this.containerGatoClicado.appendChild(this.elemContador);
+            this.containerGatoClicado.appendChild(this.elemImagem);
+
+            this.elemImagem.addEventListener("click", function(){
+              octopus.incrementarClique();
+            })
+
+            this.container.appendChild(this.containerGatoClicado);
+
+            // this.render();
+
 
         },
 
         render: function() {
-            var containerGatoClicado,
-                elemImagem,
-                elemTitulo,
-                elemContador,
-                cat = octopus.pegarAtual();
 
-
-            this.container[0].innerHTML = "";
-
-            containerGatoClicado = document.createElement("div");
+          var currentCat = octopus.pegarAtual();
 
 
 
-            elemImagem = document.createElement("img");
-            elemImagem.src = cat.imagem;
-
-            elemTitulo = document.createElement("h1");
-            elemTitulo.textContent = cat.nome;
-
-            elemContador = document.createElement("p");
-            elemContador.textContent = "Já tenho " + cat.contagemCliques;
-
-            containerGatoClicado.appendChild(elemTitulo);
-            containerGatoClicado.appendChild(elemContador);
-            containerGatoClicado.appendChild(elemImagem);
-
-
-            this.container[0].appendChild(containerGatoClicado);
-
+          this.elemImagem.src = currentCat.imagem;
+          this.elemTitulo.textContent = currentCat.nome;
+          this.elemContador.textContent = "Já tenho " + currentCat.contagemCliques;
         }
     };
 
