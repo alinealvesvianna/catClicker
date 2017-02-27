@@ -4,6 +4,8 @@
 
         current: null,
 
+        modoAdmin: false,
+
         dados: [{
                 nome: "nome1",
                 imagem: "img/catImage.jpg",
@@ -31,6 +33,7 @@
             data.current = data.dados[0];
             lista.init();
             container.init();
+            areaAdminstrativa.init();
         },
 
         pegarAtual: function() {
@@ -46,10 +49,25 @@
         },
 
         incrementarClique: function() {
+          if (data.modoAdmin === false) {
             data.current.contagemCliques++;
             container.render();
-        }
+          }
+        },
 
+        mostrarAdmin: function() {
+            data.modoAdmin = true;
+            areaAdminstrativa.render();
+        },
+
+        cancelarAdmin: function() {
+            data.modoAdmin = false;
+            areaAdminstrativa.cancelar();
+        },
+
+        atualizarDados: function(){
+
+        }
     };
 
 
@@ -78,6 +96,7 @@
                     return function() {
                         octopus.selecionarAtual(catCopy);
                         container.render();
+                        octopus.cancelarAdmin();
                     };
                 })(cat));
 
@@ -100,27 +119,76 @@
             this.containerGatoClicado.appendChild(this.elemContador);
             this.containerGatoClicado.appendChild(this.elemImagem);
 
-            this.elemImagem.addEventListener("click", function(){
-              octopus.incrementarClique();
-            })
+            this.elemImagem.addEventListener("click", function() {
+                octopus.incrementarClique();
+            });
 
             this.container.appendChild(this.containerGatoClicado);
-
-            // this.render();
-
-
         },
 
         render: function() {
+            var currentCat = octopus.pegarAtual();
+
+            this.elemImagem.src = currentCat.imagem;
+            this.elemTitulo.textContent = currentCat.nome;
+            this.elemContador.textContent = "Já tenho " + currentCat.contagemCliques;
+        }
+    };
+
+
+    var areaAdminstrativa = {
+        init: function() {
+            this.buttonAdmin = document.getElementById('admin-button');
+            this.buttonSalvar = document.getElementById('salvar-alteracoes');
+            this.buttonCancelar = document.getElementById('cancelar-alteracoes');
+            this.campoNome = document.getElementById('nome-gato-admin');
+            this.campoImagem = document.getElementById('imagem-gato-admin');
+            this.campoClique = document.getElementById('cliques-gato-admin');
+
+            this.buttonAdmin.addEventListener('click', function() {
+                octopus.mostrarAdmin();
+            });
+
+            this.buttonSalvar.addEventListener('click', function(e){
+              e.preventDefault()
+              areaAdminstrativa.salvar();
+            });
+
+            this.buttonCancelar.addEventListener('click', function(e){
+              e.preventDefault()
+              octopus.cancelarAdmin();
+            });
+        },
+
+        cancelar: function() {
+            this.containerAdmin = document.getElementById('admin-section');
+            this.containerAdmin.setAttribute('class', 'ocultar');
+        },
+
+        render: function() {
+            this.containerAdmin = document.getElementById('admin-section');
+            this.containerAdmin.setAttribute('class', '');
+            var currentCat = octopus.pegarAtual();
+
+            this.campoNome.value = currentCat.nome;
+            this.campoImagem.value =  currentCat.imagem;
+            this.campoClique.value = currentCat.contagemCliques;
+            console.log(currentCat);
+
+        },
+
+        salvar: function(){
 
           var currentCat = octopus.pegarAtual();
+          currentCat.nome = this.campoNome.value;
+          currentCat.imagem = this.campoImagem.value;
+          currentCat.contagemCliques = this.campoClique.value;
+          container.render();
+          lista.render();
+          octopus.cancelarAdmin();
 
-
-
-          this.elemImagem.src = currentCat.imagem;
-          this.elemTitulo.textContent = currentCat.nome;
-          this.elemContador.textContent = "Já tenho " + currentCat.contagemCliques;
         }
+
     };
 
 
