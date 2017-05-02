@@ -28,3 +28,7 @@ img {
 .ocultar{
   display:none;  
 }
+
+#lista-gatos li {
+    cursor: pointer;
+}
