@@ -7,19 +7,19 @@
         modoAdmin: false,
 
         dados: [{
-                nome: "nome1",
+                nome: "Clicar no gato 1",
                 imagem: "img/catImage.jpg",
                 contagemCliques: 0
             },
 
             {
-                nome: "nome2",
+                nome: "Clicar no gato 2",
                 imagem: "img/catImage2.jpg",
                 contagemCliques: 0
             },
 
             {
-                nome: "nome3",
+                nome: "Clicar no gato 3",
                 imagem: "img/catImage3.jpg",
                 contagemCliques: 0
             }
