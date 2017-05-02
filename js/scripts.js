@@ -129,7 +129,9 @@
 
             this.elemImagem.src = currentCat.imagem;
             this.elemTitulo.textContent = currentCat.nome;
-            this.elemContador.textContent = "Já tenho " + currentCat.contagemCliques;
+            this.elemContador.textContent = "Clique na foto do gato para incrementar o número de cliques. " + 
+                "Número de Cliques: " + 
+                 currentCat.contagemCliques;
         }
     };
 
