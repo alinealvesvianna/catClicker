@@ -24,11 +24,11 @@ img {
     margin: 10px;
 }
 
-.ocultar{
+.ocultar {
   display:none;  
 }
 
-#lista-gatos{
+#lista-gatos {
     list-style: none;
 }
 
@@ -45,9 +45,15 @@ img {
     display: inline-block
 }
 
-#admin-button{
+#admin-button {
     height: 50px;
     margin-left: 4em;
+    margin-bottom: 2em;
     display: block;
     width: 33%;
+}
+
+#admin-section {
+    background: #ccc;
+    padding: 1em 4em;
 }
