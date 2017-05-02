@@ -64,10 +64,6 @@
             data.modoAdmin = false;
             areaAdminstrativa.cancelar();
         },
-
-        atualizarDados: function(){
-
-        }
     };
 
 
@@ -91,7 +87,9 @@
                 cat = cats[i];
                 elem = document.createElement("li");
                 elem.textContent = cat.nome
-
+                //Para guardar o clique em cada cópia do gato, e não no último gato do loop
+                //Immediately-invoked function expression
+                //https://en.wikipedia.org/wiki/Immediately-invoked_function_expression
                 elem.addEventListener('click', (function(catCopy) {
                     return function() {
                         octopus.selecionarAtual(catCopy);
