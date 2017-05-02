@@ -29,6 +29,24 @@ img {
   display:none;  
 }
 
+#lista-gatos{
+    list-style: none;
+}
+
 #lista-gatos li {
     cursor: pointer;
+    background: #ccc;
+    width: 33%;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 1em;
+    text-transform: uppercase;
+    color: #3e3b3b;
+}
+
+#admin-button{
+    height: 50px;
+    margin-left: 4em;
+    display: block;
+    width: 33%;
 }
