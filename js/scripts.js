@@ -83,7 +83,7 @@
 
             this.listaGatos.innerHTML = "";
 
-            for (var i = 0; i < cats.length; i++) {
+            for (i = 0; i < cats.length; i++) {
                 cat = cats[i];
                 elem = document.createElement("li");
                 elem.textContent = cat.nome
